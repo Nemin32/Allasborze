@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AllasModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AllasUser> SignInManager
+@inject UserManager<AllasUser> UserManager
+
+<h1>TEEEEEEEEEEEEESZT</h1>
+
+<ul>
+    @foreach (var allas in Model)
+    {
+        <li>
+            @allas.Pozicio @allas.Leiras @allas.Oraber
+        </li>
+    }
+</ul>

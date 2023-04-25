@@ -57,6 +57,11 @@ namespace Allasborze.Controllers
             return View();
         }
 
+        public IActionResult Jobs()
+        {
+            return View(db.Allasok);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
