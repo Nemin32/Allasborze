@@ -16,11 +16,16 @@
     <ul>
         @foreach (var allas in Model)
         {
-            @:
-            <li><b>@allas.Pozicio</b> (Órabér: @allas.Oraber @if (SignInManager.IsSignedIn(User))
+            @if (SignInManager.IsSignedIn(User))
+            {
+                if ((await UserManager.GetUserAsync(this.User))?.Oraber <= allas.Oraber)
                 {
-                    <span>, Jelentkezők: 0</span>
-                }) - <i>@allas.Leiras</i></li>
+                    <li><b>@allas.Pozicio</b> (Órabér: @allas.Oraber, Jelentkezők: @allas.Dolgozok.Count) - <i>@allas.Leiras</i> <a href="/Home/Jelentkez?id=@allas.Id">Jelentkez</a></li>
+                }
+            } else
+            {
+                <li><b>@allas.Pozicio</b> (Órabér: @allas.Oraber) - <i>@allas.Leiras</i></li>
+            }
         }
     </ul>
 </div>
