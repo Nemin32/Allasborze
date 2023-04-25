@@ -6,7 +6,8 @@ namespace Allasborze.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public DbSet<AllasModel> Allasok { get; set; }
+        DbSet<AllasModel> Allasok { get; set; }
+        DbSet<AllasUser> Felhasznalok { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
