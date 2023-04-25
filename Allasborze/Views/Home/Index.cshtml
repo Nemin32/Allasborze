@@ -28,15 +28,22 @@
             {
                 if ((await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(this.User), "Admin")))
                 {
-                     <li>
-                         <b>@allas.Pozicio</b> (Órabér: @allas.Oraber, Jelentkezők: @allas.Dolgozok.Count) - <i>@allas.Leiras</i>
-                         <ol>
-                            @foreach (var user in allas.Dolgozok)
-                            {
-                                <li>@user.FirstName @user.LastName</li>
-                            }
-                        </ol>
-                     </li>
+                    <div class="card" style="width: 18rem; background-color: lightgreen; margin: 20px">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>@allas.Pozicio</b></h5>
+                            <h6 class="card-title">(Órabér: @allas.Oraber, Jelentkezők: @allas.Dolgozok.Count)</h6>
+                            <li>
+                                <ol class="card-text">
+                                @foreach (var user in allas.Dolgozok)
+                                {
+                                    <li>@user.FirstName @user.LastName</li>
+                                }
+                                </ol>
+                            </li>
+                            <p class="card-text">@allas.Leiras</p>
+                            <a class="btn btn-outline-primary" href="/Home/Jelentkez?id=@allas.Id">Jelentkez</a>
+                        </div>
+                    </div>
                 } else if ((await UserManager.GetUserAsync(this.User))?.Oraber <= allas.Oraber)
                 {
                     <div class="card" style="width: 18rem; background-color: lightgreen; margin: 20px">
