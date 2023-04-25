@@ -1,4 +1,8 @@
-﻿@model IEnumerable<AllasModel>;
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<AllasModel>;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -8,6 +12,13 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
     <ul>
-        
+        @foreach (var allas in Model)
+        {
+            @:
+            <li><b>@allas.Pozicio</b> (Órabér: @allas.Oraber @if (SignInManager.IsSignedIn(User))
+                {
+                    <span>, Jelentkezők: 0</span>
+                }) - <i>@allas.Leiras</i></li>
+        }
     </ul>
 </div>

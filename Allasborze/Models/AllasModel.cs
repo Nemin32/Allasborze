@@ -4,8 +4,13 @@ namespace Allasborze.Models
 {
     public class AllasModel
     {
+        public AllasModel()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
+
         [Key]
-        public string Guid { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public int Oraber { get; set; }

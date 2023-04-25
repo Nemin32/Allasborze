@@ -1,0 +1,11 @@
+﻿@model AllasModel
+
+<body>
+<form action="Add" method="post">
+    @Html.EditorFor(t => t.Pozicio);
+    @Html.EditorFor(t => t.Leiras);
+    @Html.EditorFor(t => t.Oraber);
+
+    <input type="submit" value="Küldés" />
+</form>
+</body>
