@@ -9,11 +9,11 @@ namespace Allasborze.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<AllasUser> userManager;
+        private readonly SignInManager<AllasUser> signInManager;
         private readonly ApplicationDbContext db;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ApplicationDbContext db)
+        public HomeController(ILogger<HomeController> logger, UserManager<AllasUser> userManager, SignInManager<AllasUser> signInManager, ApplicationDbContext db)
         {
             _logger = logger;
             this.userManager = userManager;

@@ -80,6 +80,19 @@ namespace Allasborze.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [Display(Name = "Keresztnév")]
+            public string FirstName { get; set; }
+
+
+            [Required]
+            [Display(Name = "Vezetéknév")]
+            public string LastName { get; set; }
+
+            [Required]
+            [Display(Name = "Órabér")]
+            public int Oraber { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
