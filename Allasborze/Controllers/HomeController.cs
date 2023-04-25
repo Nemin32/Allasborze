@@ -58,5 +58,21 @@ namespace Allasborze.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Jelentkez(string id)
+        {
+            var allas = db.Allasok.FirstOrDefault(t => t.Id == id);
+
+            if (allas == null) return RedirectToAction(nameof(Error));
+
+            var user = await userManager.GetUserAsync(this.User);
+            allas.Dolgozok.Add(user);
+            user.Allasok.Add(allas);
+            db.SaveChanges();
+
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

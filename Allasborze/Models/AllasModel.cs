@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Allasborze.Models
 {
@@ -20,5 +21,8 @@ namespace Allasborze.Models
 
         [Required]
         public string Leiras { get; set; }
+
+        [NotMapped]
+        public virtual List<AllasUser> Dolgozok { get; set; }
     }
 }

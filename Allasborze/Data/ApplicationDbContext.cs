@@ -13,5 +13,18 @@ namespace Allasborze.Data
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<AllasModel>()
+                .HasMany(t => t.Dolgozok)
+                .WithMany();
+
+            builder.Entity<AllasUser>()
+                .HasMany(t => t.Allasok)
+                .WithMany();
+
+            base.OnModelCreating(builder);
+        }
     }
 }
