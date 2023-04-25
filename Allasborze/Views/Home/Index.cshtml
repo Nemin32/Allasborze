@@ -26,7 +26,18 @@
         {
             @if (SignInManager.IsSignedIn(User))
             {
-                if ((await UserManager.GetUserAsync(this.User))?.Oraber <= allas.Oraber)
+                if ((await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(this.User), "Admin")))
+                {
+                     <li>
+                         <b>@allas.Pozicio</b> (Órabér: @allas.Oraber, Jelentkezők: @allas.Dolgozok.Count) - <i>@allas.Leiras</i>
+                         <ol>
+                            @foreach (var user in allas.Dolgozok)
+                            {
+                                <li>@user.FirstName @user.LastName</li>
+                            }
+                        </ol>
+                     </li>
+                } else if ((await UserManager.GetUserAsync(this.User))?.Oraber <= allas.Oraber)
                 {
                     <div class="card" style="width: 18rem; background-color: lightgreen; margin: 20px">
                       <div class="card-body">
