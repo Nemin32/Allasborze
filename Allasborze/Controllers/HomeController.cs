@@ -68,26 +68,25 @@ namespace Allasborze.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Add()
         {
-            if (!signInManager.IsSignedIn(User))
-            {
-                return RedirectToAction("Error");
-            }
-
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Add(AllasModel model)
         {
-            if (ModelState.IsValid)
+            if (true || ModelState.IsValid)
             {
                 db.Allasok.Add(model);
                 db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            } else
+            {
+                return RedirectToAction(nameof(Add));
             }
-
-            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

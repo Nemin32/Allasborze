@@ -14,12 +14,15 @@ namespace Allasborze.Models
         public string Id { get; set; }
 
         [Required]
+        [Range(50, 10000)]
         public int Oraber { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string Pozicio { get; set; }
 
         [Required]
+        [MaxLength(500)]
         public string Leiras { get; set; }
 
         [NotMapped]
