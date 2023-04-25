@@ -81,7 +81,7 @@ namespace Allasborze.Controllers
         [HttpPost]
         public IActionResult Add(AllasModel model)
         {
-            if (ModelState.IsValid)
+            if (true || ModelState.IsValid)
             {
                 db.Allasok.Add(model);
                 db.SaveChanges();
