@@ -5,11 +5,26 @@
 
 <h1>TEEEEEEEEEEEEESZT</h1>
 
-<ul>
+@foreach (var job in Model.GroupBy(t => t.Id))
+{
+    <li class="title">
+        @job.Key
+        <ul>
+            @foreach (var item in job)
+            {
+                <li class="owner">
+                    XD
+                </li>
+            }
+        </ul>
+    </li>
+}
+
+@*<ul>
     @foreach (var allas in Model)
     {
         <li>
             @allas.Pozicio @allas.Leiras @allas.Oraber
         </li>
     }
-</ul>
+</ul>*@
